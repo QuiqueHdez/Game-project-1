@@ -1,25 +1,52 @@
 function Skater() {
     this.canvas = document.getElementById('fondo');
     this.ctx = this.canvas.getContext('2d');
-    this.ctx.fillStyle = "#0000FF";
     this.y = 270;
-    this.vy = 0;
-    this.userPull = 0;
+    this.paddleHeight = 50;
+    this.paddleY = 270
+    this.upPressed = false;
+    this.downPressed = false;
 
+    //(this.canvas.height - this.paddleHeight) / 2
+
+
+
+    //this.height = this.canvas.height - 20;
+
+   
+
+}
+
+// Skater.prototype.keyDownHandler = function (e) {
+//     if (e.keyCode == 32) {
+//         this.upPressed = true;
+//     }
+// }
+// Skater.prototype.keyUpHandler = function (e) {
+//     if (e.keyCode == 32) {
+//         this.downPressed = true;
+
+//     }
+
+
+
+// }
+
+
+
+Skater.prototype.drawPlayer = function () {
+    this.ctx.beginPath();
+    this.ctx.rect(50, this.paddleY, 50, this.paddleHeight);
+    this.ctx.fillStyle = "#FF0000";
+    this.ctx.fill();
+    this.ctx.closePath();
 
 }
 Skater.prototype.draw = function () {
-    this.ctx.clearRect(50, this.y, 50, 50);
-    this.ctx.fillRect(50, this.y, 50, 50);
-    // document.onkeydown = function (e) {
-    //     if (e.keyCode == 16) {
-    //         this.ctx.clearRect(50, this.y, 50, 25);
-    //         this.ctx.fillRect(50, this.y, 50, 25);
-    //         console.log("bend")
-    //     }
-    // }
+    // this.ctx.clearRect(50, this.y,  50, this.paddleHeight);
+    this.drawPlayer();
 
-
+     
 }
 Skater.prototype.bend = function () {
     this.ctx.clearRect(50, this.y, 50, 50);
@@ -32,27 +59,34 @@ Skater.prototype.bend = function () {
 //
 
 Skater.prototype.jump = function () {
-    this.y -= 10;
-    // for (i = this.y; i > 120; i += 10){
-    //     this.y -= i;
+
+
+
+    // if (this.paddleY < this.canvas.height - this.paddleHeight) {
+    //     this.paddleY -= 7;
+
+
     // }
 
-     if (this.y < 150) {
-         this.y += 10
-     }
-    console.log(this.y);
+    // this.y-=this.vy
+
+    // if (this.y < 150) {
+    //     console.log("tope");
+    //     this.drop();
+    // }
+    // console.log(this.y);
 
 }
 Skater.prototype.drop = function () {
 
-    for (i = this.y; i <= 270; i += 10) {
-        this.y += i;
+    for (i = this.paddleY; i <= 270; i += 10) {
+        this.paddleY += i;
         console.log("baja follao")
     }
     console.log("bajar")
 
-    if (this.y > 270) {
-        this.y = 270;
+    if (this.paddleY > 270) {
+        this.paddleY = 270;
     }
 
     //jaaj
