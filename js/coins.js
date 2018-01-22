@@ -35,7 +35,7 @@ Coins.prototype.refill = function () {
 
 
         this.appearUpdate()
-        console.log("refill")
+        //console.log("refill")
     }
 }
 Coins.prototype.appearUpdate = function () {
@@ -51,5 +51,5 @@ Coins.prototype.appearUpdate = function () {
     this.ctx.fillRect(this.posX,  this.posY, 25, 25);
     this.ctx.fillRect(this.posX2, this.posY, 25, 25);
     this.ctx.fillRect(this.posX3, this.posY, 25, 25);
-    console.log(this.posY);
+    //console.log(this.posY);
 }

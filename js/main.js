@@ -20,7 +20,7 @@ window.onload = function () {
         cn.appearUpdate();
         document.onkeydown = function (e) {
             if (e.keyCode == 32) {
-                propiedad = false
+                propiedad = false;
                 gm.jump();
             }
 

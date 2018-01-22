@@ -18,64 +18,47 @@ Skater.prototype.draw = function () {
     //         console.log("bend")
     //     }
     // }
-      
 
+
+}
+Skater.prototype.bend = function () {
+    this.ctx.clearRect(50, this.y, 50, 50);
+    this.ctx.fillRect(50, this.y, 50, 25);
+    console.log("bend")
+
+
+}
+
+//
+
+Skater.prototype.jump = function () {
+    this.y -= 10;
+    // for (i = this.y; i > 120; i += 10){
+    //     this.y -= i;
+    // }
+
+     if (this.y < 150) {
+         this.y += 10
+     }
+    console.log(this.y);
+
+}
+Skater.prototype.drop = function () {
+
+    for (i = this.y; i <= 270; i += 10) {
+        this.y += i;
+        console.log("baja follao")
     }
-    Skater.prototype.bend=function() {
-        this.ctx.clearRect(50, this.y, 50, 50);
-        this.ctx.fillRect(50, this.y, 50, 25);
-        console.log("bend")
-    
+    console.log("bajar")
 
+    if (this.y > 270) {
+        this.y = 270;
     }
 
-    //
-
-    Skater.prototype.jump = function () {
-        this.y -= 10;
-        if (this.y < 120) {
-            this.y += 10
-        }
-        console.log(this.y);
-
-    }
-    Skater.prototype.drop = function () {
-        this.y += 3;
-       console.log("bajar")
-
-        if (this.y > 270) {
-            this.y = 270;
-        }
-
-//jaaj
-    }
-
-
-   
-
-
-
-// Skater.prototype.update= function(){
-//     this.vy += (window.gravity - this.userPull);
-//     this.y += this.vy;
-//     if(this.vy+this.y<270){
-//         this.y=270
-//     }
-
-
-// }
-
-
-//  window.requestAnimationFrame(Skater.prototype.updateCanvas);
+    //jaaj
+}
 
 
 
 
-
-    //     this.gamer = new Image();
-//     this.gamer.src = 'images/pepe.jpg';
-
-// }
-// Skater.prototype.deload = function () {
-//     this.ctx.drawImage(350, 50, 50);
 
