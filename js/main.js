@@ -1,6 +1,7 @@
 window.onload = function () {
     var bg = new Back();
     bg.onload();
+    bg.update();
     document.getElementById("start-button").onclick = function () {
         startGame();
 
@@ -9,7 +10,7 @@ window.onload = function () {
     var cn = new Coins();
     var gm = new Skater();
     function startGame() {
-        bg.update();
+        alert("ACCEPT TO RESUME");
 
     }
 
@@ -19,31 +20,41 @@ window.onload = function () {
         cn.appearUpdate();
         document.onkeydown = function (e) {
             if (e.keyCode == 32) {
+                propiedad = false
                 gm.jump();
-            } else if (e.keyCode == 16) {
-                gm.bend();
             }
-        }
-        gm.drop()
-;
 
+        }
+        document.onkeyup = function (e) {
+                if (e.keyCode == 32) {
+                    propiedad = true;
+
+                }
+                if (propiedad) {
+                    gm.drop();
+                }
+            }
+        
+        
+        cn.refill();
 
     }
 
-setInterval(update, 20)
 
-// document.onkeydown = function (e) {
-//     if (e.keyCode == 32) {
-//       gm.jump();
-//     }
-// }
+    setInterval(update, 20)
+
+    // document.onkeydown = function (e) {
+    //     if (e.keyCode == 32) {
+    //       gm.jump();
+    //     }
+    // }
 
 
 
-function draw() {
-    gm.draw();
-}
+    function draw() {
+        gm.draw();
+    }
 
-   
+
 
 }

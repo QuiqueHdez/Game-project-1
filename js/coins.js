@@ -1,22 +1,14 @@
 function Coins() {
     this.canvas = document.getElementById('fondo');
     this.ctx = this.canvas.getContext('2d');
-    // this.ctx.fillStyle = "#FFFF00";
-
+    this.ctx.fillStyle = "#FFFF00";
+    this.vx = 4;
     this.posX = 800;
     this.posX2 = 950;
     this.posX3 = 1100;
+    this.posY = 255;
+    this.random = 0;
 
-}
-Coins.prototype.appearUpdate = function () {
-
-    this.posX -= 4;
-    this.posX2 -= 4;
-    this.posX3 -= 4;
-    this.ctx.clearRect(800, 245, 25, 25);
-    this.first = this.ctx.fillRect(this.posX, 255, 25, 25);
-    this.second = this.ctx.fillRect(this.posX2, 255, 25, 25);
-    this.third = this.ctx.fillRect(this.posX3, 255, 25, 25)
 }
 
 
@@ -26,4 +18,38 @@ Coins.prototype.appearUpdate = function () {
 
 
 //  }
+Coins.prototype.refill = function () {
 
+
+
+    if (this.posX3 < -80) {
+        this.posY -= this.random;
+        if (this.posY < 180) {
+            
+            this.posY=255;
+        }
+        this.posX = 800;
+        this.posX2 = 950;
+        this.posX3 = 1100;
+        this.random = Math.random() * 50 +20;
+
+
+        this.appearUpdate()
+        console.log("refill")
+    }
+}
+Coins.prototype.appearUpdate = function () {
+
+
+
+
+    this.posX -= this.vx;
+    this.posX2 -= this.vx;
+    this.posX3 -= this.vx;
+
+    this.ctx.clearRect(800, 245, 25, 25);
+    this.ctx.fillRect(this.posX,  this.posY, 25, 25);
+    this.ctx.fillRect(this.posX2, this.posY, 25, 25);
+    this.ctx.fillRect(this.posX3, this.posY, 25, 25);
+    console.log(this.posY);
+}

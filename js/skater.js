@@ -41,7 +41,7 @@ Skater.prototype.draw = function () {
     }
     Skater.prototype.drop = function () {
         this.y += 3;
-        console.log("mal")
+       console.log("bajar")
 
         if (this.y > 270) {
             this.y = 270;
