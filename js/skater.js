@@ -47,7 +47,7 @@ Skater.prototype.draw = function () {
             this.y = 270;
         }
 
-
+//jaaj
     }
 
 
