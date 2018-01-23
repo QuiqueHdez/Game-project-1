@@ -3,24 +3,25 @@ window.onload = function () {
     bg.onload();
     bg.update();
     document.getElementById("start-button").onclick = function () {
-        startGame();
+        pauseGame();
 
     };
 
     var cn = new Coins();
     var sk = new Skater();
+    var gp = new Gaps();
     document.addEventListener("keydown", keyDownHandler, false);
     document.addEventListener("keyup", keyUpHandler, false);
 
-    function keyUpHandler(e) {
+    function keyUpHandler(e) {//funcion bajar
         if (e.keyCode == 32 || sk.paddleY <= 175) {
-            sk.upPressed = true;
             sk.downPressed = false;
+            sk.upPressed = true;
             console.log("baja")
 
         }
     }
-    function keyDownHandler(e) {
+    function keyDownHandler(e) {//funcion subir
         if (e.keyCode == 32 && sk.paddleY >= 270) {
             //la segunda condicion hace que no pueda hacer doble salto
             sk.downPressed = true;
@@ -30,7 +31,7 @@ window.onload = function () {
 
         }
     }
-    function startGame() {
+    function pauseGame() {
         alert("ACCEPT TO RESUME");
 
     }
@@ -38,12 +39,13 @@ window.onload = function () {
         bg.update();
         sk.draw();
         cn.appearUpdate();
+        gp.drawGaps();
 
-        if (sk.downPressed && sk.paddleY >= 170) {
+        if (sk.downPressed && sk.paddleY >= 150) {
             //la segunda condicion hace que no suba hasta  
-            // el infinito y se quede en 170;
+            // el infinito y se queda en 170;
 
-            sk.paddleY -= 7;
+            sk.paddleY -= 9;
 
             console.log("subir")
 
@@ -53,11 +55,11 @@ window.onload = function () {
             sk.paddleY += 5;
             console.log(sk.paddleY)
         }
-   
+
         cn.refill();
     }
 
-    setInterval(update, 20);
+    setInterval(update, 1000/60);
 
 
 

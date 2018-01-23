@@ -7,12 +7,7 @@ function Skater() {
     this.upPressed = false;
     this.downPressed = false;
 
- 
-
 }
-
-
-
 
 Skater.prototype.drawPlayer = function () {
     this.ctx.beginPath();
@@ -22,12 +17,14 @@ Skater.prototype.drawPlayer = function () {
     this.ctx.closePath();
 
 }
+
 Skater.prototype.draw = function () {
     // this.ctx.clearRect(50, this.y,  50, this.paddleHeight);
     this.drawPlayer();
 
      
 }
+
 Skater.prototype.bend = function () {
     this.ctx.clearRect(50, this.y, 50, 50);
     this.ctx.fillRect(50, this.y, 50, 25);
