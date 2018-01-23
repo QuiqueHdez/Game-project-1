@@ -15,9 +15,10 @@ Gaps.prototype.drawGaps = function (ctx) {
 
     ctx.save(),
     ctx.beginPath()    
-    ctx.fillStyle = '#fff';    
-    ctx.fillText(this.x, 10, 10);
-    ctx.fillText(this.y, 10, 20);
+    ctx.fillStyle = '#fff';
+    ctx.font="18px Arial"
+    ctx.fillText("x.obstaculo:"+this.x, 20, 20);
+    ctx.fillText("y.obstaculo:"+this.y, 20, 40);
     ctx.closePath();
     ctx.restore();
     
@@ -31,7 +32,7 @@ Gaps.prototype.update = function () {
     }
 }
 Gaps.prototype.collision = function (skater, ctx) {
-    if (skater.x + 50 >= this.x && skater.posY + 50 >= this.y) {
+    if (skater.x + 70 >= this.x && skater.posY + 70 >= this.y) {
         ctx.save(),
         ctx.font = '30px Arial';
         ctx.fillStyle = 'red';
