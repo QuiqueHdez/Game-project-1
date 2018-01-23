@@ -1,7 +1,7 @@
 function Coins() {
     this.canvas = document.getElementById('fondo');
     this.ctx = this.canvas.getContext('2d');
-    this.ctx.fillStyle = "#FFFF00";
+    this.ctx.fillStyle = "#00FF00";
     this.vx = 4;
     this.posX = 800;
     this.posX2 = 950;
