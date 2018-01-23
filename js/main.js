@@ -22,7 +22,7 @@ window.onload = function () {
         }
     }
     function keyDownHandler(e) {//funcion subir
-        if (e.keyCode == 32 && sk.paddleY >= 270) {
+        if (e.keyCode == 32 && sk.posY >= 270) {
             //la segunda condicion hace que no pueda hacer doble salto
             sk.downPressed = true;
             sk.upPressed = false;
@@ -39,30 +39,29 @@ window.onload = function () {
         bg.update();
         sk.draw();
         cn.appearUpdate();
-        gp.drawGaps();
+        gp.drawGaps(bg.ctx);
+        gp.update();
+        gp.collision(sk, bg.ctx);
+        cn.achieve(sk, bg.ctx);
 
-        if (sk.downPressed && sk.paddleY >= 150) {
+        if (sk.downPressed && sk.posY >= 150) {
             //la segunda condicion hace que no suba hasta  
-            // el infinito y se queda en 170;
+            // el infinito y se queda en 150;
 
-            sk.paddleY -= 9;
+            sk.posY -= 9;
 
             console.log("subir")
 
         }
 
-        else if (sk.upPressed && sk.paddleY < 270) {
-            sk.paddleY += 5;
-            console.log(sk.paddleY)
+        else if (sk.upPressed && sk.posY < 270) {
+            sk.posY += 5;
+            console.log(sk.posY)
         }
 
         cn.refill();
     }
 
     setInterval(update, 1000/60);
-
-
-
-
 
 }

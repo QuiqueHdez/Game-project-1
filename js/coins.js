@@ -19,10 +19,7 @@ function Coins() {
 
 //  }
 Coins.prototype.refill = function () {
-
-
-
-    if (this.posX3 < -80) {
+     if (this.posX3 < -80) {
         this.posY -= this.random;
         if (this.posY < 180) {
 
@@ -46,4 +43,19 @@ Coins.prototype.appearUpdate = function () {
     this.ctx.fillRect(this.posX,  this.posY, 25, 25);
     this.ctx.fillRect(this.posX2, this.posY, 25, 25);
     this.ctx.fillRect(this.posX3, this.posY, 25, 25);
+}
+Coins.prototype.achieve = function (skater,ctx) {
+    if (skater.x + skater.paddleX >= this.posX && skater.posY <= this.posY) { 
+        var a = 0;
+        ctx.save();
+        ctx.beginPath()    
+        ctx.fillStyle = '#FFFF00';
+        ctx.font="30px Arial"
+        ctx.fillText(a+=1, 700, 40)
+        ctx.closePath();
+        ctx.restore();
+
+
+    }    
+
 }
