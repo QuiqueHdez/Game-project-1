@@ -80,6 +80,7 @@ Coins.prototype.achieve = function (skater, ctx) {
 
     else if (skater.x + skater.paddleX >= this.arrayMonedas[2].x && skater.posY <= this.arrayMonedas[2].y) {
         this.posX3 = -50;
+        console.log("TERCERA MONEDA")
     }
     else if (this.counterCoin >= 1000) {
         alert("drunk");

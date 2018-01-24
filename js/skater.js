@@ -1,7 +1,7 @@
 function Skater() {
     this.canvas = document.getElementById('fondo');
     this.ctx = this.canvas.getContext('2d');
-    this.x = 50;
+    this.x = 30;
     this.paddleHeight = 70;
     this.posY = 250;
     this.paddleX = 50;
