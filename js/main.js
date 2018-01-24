@@ -36,14 +36,6 @@ window.onload = function () {
 
     }
     function update() {
-        bg.update();
-        sk.draw();
-        gp.drawGaps(bg.ctx);
-        gp.update();
-        gp.collision(sk, bg.ctx);
-        cn.appearUpdate(bg.ctx);
-        cn.achieve(sk, bg.ctx);
-
         if (sk.downPressed && sk.posY >= 150) {
 
             //la segunda condicion hace que no suba hasta  
@@ -60,6 +52,13 @@ window.onload = function () {
            
         }
 
+        bg.update();
+        sk.draw();
+        gp.drawGaps(bg.ctx);
+        gp.update();
+        gp.collision(sk, bg.ctx);
+        cn.appearUpdate(bg.ctx);
+        cn.achieveDetection(sk);
         cn.refill();
     }
 

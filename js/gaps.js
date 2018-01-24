@@ -50,6 +50,9 @@ Gaps.prototype.update = function () {
 }
 Gaps.prototype.collision = function (skater, ctx) {
     if (skater.x + 10 >= this.x && skater.posY + 70 >= this.y) {
+        
+
+        
         ctx.save(),
         ctx.font = '30px Arial';
         ctx.fillStyle = 'red';
