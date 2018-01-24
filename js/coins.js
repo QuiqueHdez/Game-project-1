@@ -7,7 +7,7 @@ function Coins() {
     this.posX3 = 1100;
     this.counterCoin = 0;
     this.coinColumn = 3;
-    this.coins = [this.coin1, this.coin2, this.coin3];
+   // this.coins = [this.coin1, this.coin2, this.coin3];
 
 
 
@@ -46,9 +46,21 @@ Coins.prototype.achieveDetection = function (skater) {
         this.posX = -50;
         this.counterCoin += 1;
         console.log("MONEDA");
+
+    } else if (skater.x + skater.paddleX > this.arr[1].x && skater.x + skater.paddleX < this.arr[1].x + 25 && skater.posY < this.arr[1].y && skater.posY + skater.paddleHeight > this.arr[1].y + 25) {
+        this.posX2 = -50;
+        this.counterCoin += 1;
+        console.log("moneda2")
+    }
+    else if (skater.x + skater.paddleX > this.arr[2].x && skater.x + skater.paddleX < this.arr[2].x + 25 && skater.posY < this.arr[2].y && skater.posY + skater.paddleHeight > this.arr[2].y + 25) {
+        this.posX3 = -50;
+        this.counterCoin += 1;
+        console.log("modeda3")
+    }
+    else if (this.counterCoin >= 10) {
+        alert ("DRUNK")
     }
 
-    ;
 }
 // this.arrayMonedas = [
 //     {
@@ -76,23 +88,25 @@ Coins.prototype.appearUpdate = function (ctx) {
     var beer = new Image();
     beer.src = "./images/beer.png";
     ctx.drawImage(beer, this.posX, this.posY1, 25, 25);
-    ctx.drawImage(beer, this.posX2, this.y, 25, 25);
-    ctx.drawImage(beer, this.posX3, this.y, 25, 25);
+    ctx.drawImage(beer, this.posX2, this.posY2, 25, 25);
+    ctx.drawImage(beer, this.posX3, this.posY3, 25, 25);
     ctx.clearRect(800, 245, 25, 25);
     ctx.fillStyle = "yellow";
 
-    ctx.fillText("coin.x:" + this.posX, 400, 20)
-    ctx.fillText("coin.y:" + this.posY1, 400, 30)
+    ctx.fillText("coin.x3:" + this.posX3, 400, 20)
+    ctx.fillText("coin.y3:" + this.posY3, 400, 30)
+    ctx.fillText("coin.y2:" + this.posY2, 400, 50)
+
     ctx.fillText(this.counterCoin, 680, 40)
 }
 
 Coins.prototype.refill = function () {
-    if (this.posX < -80) {
+    if (this.posX3 < -80) {
         this.randomY();
 
         this.posX = 800;
-        // this.posX2 = 950;
-        // this.posX3 = 1100;
+         this.posX2 = 950;
+         this.posX3 = 1100;
 
 
 
