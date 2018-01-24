@@ -2,6 +2,7 @@ window.onload = function () {
     var bg = new Back();
     bg.onload();
     bg.update();
+    //var audio =new Audio("guile-theme")
     document.getElementById("start-button").onclick = function () {
         pauseGame();
 

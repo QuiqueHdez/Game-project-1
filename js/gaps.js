@@ -7,18 +7,9 @@ function Gaps() {
     this.sizeX = 75;
     this.sizeY = 80;
 
+    // this.caer = new Image();
+    // this.caer.src = ("./images/falling-pepe.png")
 }
-// Gaps.prototype.randomX = function () {
-
-//     this.posX = Math.floor(Math.random() * (this.maxWidth - this.minWidth) + this.minWidth)
-
-
-// }
-// Gaps.prototype.objGaps = function () {
-//     this.objSaltos = {
-//         x: this.posX,
-//         y: this.y,
-//     }
 
 
 Gaps.prototype.drawGaps = function (ctx) {
@@ -28,36 +19,38 @@ Gaps.prototype.drawGaps = function (ctx) {
     ctx.fillRect(this.x, this.y, 75, 80)
 
     ctx.save(),
-    ctx.beginPath()
+        ctx.beginPath()
     ctx.fillStyle = '#fff';
     ctx.font = "18px Arial"
-    ctx.fillText("x.obstaculo:" + this.x, 20, 20);
-    ctx.fillText("y.obstaculo:" + this.y, 20, 40);
+    // ctx.fillText("x.obstaculo:" + this.x, 20, 20);
+    // ctx.fillText("y.obstaculo:" + this.y, 20, 40);
     ctx.closePath();
     ctx.restore();
-   
+
 
 }
 Gaps.prototype.update = function () {
-         
-    
-    
+
+
+
     if (this.x + this.sizeX - 25 < 0) {
         this.x = 1300;
-        
+
 
     }
 }
+
+
 Gaps.prototype.collision = function (skater, ctx) {
     if (skater.x + 10 >= this.x && skater.posY + 70 >= this.y) {
-        
 
-        
+
         ctx.save(),
+       // ctx.drawImage(this.caer, skater.x, skater.y);
         ctx.font = '30px Arial';
         ctx.fillStyle = 'red';
         ctx.fillText('FELL', 40, 200, 700);
         ctx.restore();
-  
+
     }
 };
