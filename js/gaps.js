@@ -22,16 +22,8 @@ Gaps.prototype.drawGaps = function (ctx) {
     ctx.drawImage(barril, this.x, this.y, this.sizeX, this.sizeY);
     
     
-    //ctx.fillRect(this.x, this.y, 75, 80)
-
-    ctx.save(),
-    ctx.beginPath()
-    ctx.fillStyle = '#fff';
-    ctx.font = "18px Arial"
-    
-    ctx.closePath();
-    ctx.restore();
-
+   
+   
 
 }
 Gaps.prototype.update = function () {
