@@ -1,4 +1,5 @@
 window.onload = function () {
+    var debug = true;
     var bg = new Back();
     bg.onload();
     bg.update();
@@ -8,11 +9,14 @@ window.onload = function () {
 
     };
 
+
+
     var cn = new Coins();
     var sk = new Skater();
     var gp = new Gaps();
     var ib = new Bonus();
     var ra = new Ralph();
+
 
     document.addEventListener("keydown", restart, false)
     document.addEventListener("keydown", keyDownHandler, false);
@@ -20,14 +24,15 @@ window.onload = function () {
 
     function keyUpHandler(e) {
         //funcion bajar
-        if (e.keyCode == 32 || sk.paddleY <= 175) {
+        if (e.keyCode == 32 || sk.paddleY <= 150) {
+            debug = true;
             sk.downPressed = false;
             sk.upPressed = true;
 
         }
     }
     function keyDownHandler(e) {//funcion subir
-        if (e.keyCode == 32 && sk.posY >= 250) {
+        if (e.keyCode == 32 && sk.posY >= 250 && debug) {
             //la segunda condicion hace que no pueda hacer doble salto
             sk.downPressed = true;
             sk.upPressed = false;
@@ -41,21 +46,31 @@ window.onload = function () {
 
     }
     function update() {
-        if (sk.downPressed && sk.posY >= 150) {
+        if (sk.downPressed && sk.posY >= 130 && debug) {
 
             //la segunda condicion hace que no suba hasta  
             // el infinito y se queda en 150;
 
-            sk.posY -= 9;
+            sk.posY -= 10;
             //lo que hace que suba el skater
 
 
         }
 
+
         else if (sk.upPressed && sk.posY < 250) {
             sk.posY += 5;
 
         }
+        else if (sk.posY <= 130) {
+            debug = false;
+            sk.downPressed = false,
+             sk.upPressed = true;    
+                
+                
+
+        }
+
 
         bg.update();
         sk.draw();

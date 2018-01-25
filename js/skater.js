@@ -6,6 +6,7 @@ function Skater() {
     this.paddleHeight = 70;
     this.paddleX = 50;
     this.puntos = 0;
+    this.vy = 5;
 
     
 }

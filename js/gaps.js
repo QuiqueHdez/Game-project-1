@@ -6,11 +6,8 @@ function Gaps() {
     this.y = 320;
     this.sizeX = 75;
     this.sizeY = 80;
-    this.caida = false;
-
-    
+    this.caida = false;    
 }
-
 
 Gaps.prototype.drawGaps = function (ctx) {
     this.x -= this.vx;
@@ -21,9 +18,6 @@ Gaps.prototype.drawGaps = function (ctx) {
     barril.src = "./images/barril.png"
     ctx.drawImage(barril, this.x, this.y, this.sizeX, this.sizeY);
     
-    
-   
-   
 
 }
 Gaps.prototype.update = function () {
@@ -34,8 +28,6 @@ Gaps.prototype.update = function () {
 
     }
 }
-
-
 Gaps.prototype.collision = function (skater, ctx) {
    
     if (skater.x + 10 >= this.x && skater.posY + 70 >= this.y) {
