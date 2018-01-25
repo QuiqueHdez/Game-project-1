@@ -16,7 +16,13 @@ Gaps.prototype.drawGaps = function (ctx) {
     this.x -= this.vx;
     ctx.clearRect(1300, 320, 75, 75);
     ctx.fillStyle = "#FFF"
-    ctx.fillRect(this.x, this.y, 75, 80)
+    
+    var barril = new Image();
+    barril.src = "./images/barril.png"
+    ctx.drawImage(barril, this.x, this.y, this.sizeX, this.sizeY);
+    
+    
+    //ctx.fillRect(this.x, this.y, 75, 80)
 
     ctx.save(),
     ctx.beginPath()
