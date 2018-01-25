@@ -11,6 +11,9 @@ window.onload = function () {
     var cn = new Coins();
     var sk = new Skater();
     var gp = new Gaps();
+    var ib = new Bonus();
+    var ra = new Ralph();
+
     document.addEventListener("keydown", keyDownHandler, false);
     document.addEventListener("keyup", keyUpHandler, false);
 
@@ -55,12 +58,20 @@ window.onload = function () {
 
         bg.update();
         sk.draw();
+        sk.score(bg.ctx)
         gp.drawGaps(bg.ctx);
         gp.update();
         gp.collision(sk, bg.ctx);
         cn.appearUpdate(bg.ctx);
         cn.achieveDetection(sk);
         cn.refill();
+        ib.update(bg.ctx);
+        ib.bonusUp(sk,cn);
+        ib.refill();
+        ra.draw(bg.ctx);
+        ra.refill();
+        ra.collision(sk);
+        
     }
 
     setInterval(update, 1000/60);

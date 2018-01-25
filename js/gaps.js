@@ -31,8 +31,6 @@ Gaps.prototype.drawGaps = function (ctx) {
 }
 Gaps.prototype.update = function () {
 
-
-
     if (this.x + this.sizeX - 25 < 0) {
         this.x = 1300;
 
