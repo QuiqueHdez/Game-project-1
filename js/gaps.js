@@ -43,12 +43,6 @@ Gaps.prototype.collision = function (skater, ctx) {
     if (skater.x + 10 >= this.x && skater.posY + 70 >= this.y) {
         this.caida = true;
 
-       // ctx.save(),
-       // ctx.drawImage(this.caer, skater.x, skater.y);
-        // ctx.font = '30px Arial';
-        // ctx.fillStyle = 'red';
-        // ctx.fillText('FELL', 40, 200, 700);
-        // ctx.restore();
-
+       
     }
 };
