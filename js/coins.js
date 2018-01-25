@@ -7,6 +7,7 @@ function Coins() {
     this.posX3 = 1100;
     this.counterCoin = 0;
     this.coinColumn = 3;
+    this.drunk = false;
 
 
 
@@ -38,17 +39,21 @@ Coins.prototype.achieveDetection = function (skater) {
     if (skater.x + skater.paddleX > this.arr[0].x && skater.x + skater.paddleX < this.arr[0].x + 25 && skater.posY < this.arr[0].y && skater.posY + skater.paddleHeight > this.arr[0].y + 25) {
         this.posX = -50;
         this.counterCoin += 1;
+        
       
     } else if (skater.x + skater.paddleX > this.arr[1].x && skater.x + skater.paddleX < this.arr[1].x + 25 && skater.posY < this.arr[1].y && skater.posY + skater.paddleHeight > this.arr[1].y + 25) {
         this.posX2 = -50;
         this.counterCoin += 1;
+       
            }
     else if (skater.x + skater.paddleX > this.arr[2].x && skater.x + skater.paddleX < this.arr[2].x + 25 && skater.posY < this.arr[2].y && skater.posY + skater.paddleHeight > this.arr[2].y + 25) {
         this.posX3 = -50;
         this.counterCoin += 1;
+        
             }
     else if (this.counterCoin >= 10) {
-        alert ("DRUNK")
+       
+        this.drunk = true;
     }
 
 }
@@ -69,9 +74,7 @@ Coins.prototype.appearUpdate = function (ctx) {
     ctx.font="20px Arial"
     ctx.fillText("Beer(s): "+this.counterCoin, 680, 40)
     ctx.restore();
-    // ctx.fillText("coin.x3:" + this.posX3, 400, 20)
-    // ctx.fillText("coin.y3:" + this.posY3, 400, 30)
-    // ctx.fillText("coin.y2:" + this.posY2, 400, 50)
+   
 
 }
 

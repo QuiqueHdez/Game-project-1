@@ -6,9 +6,9 @@ function Gaps() {
     this.y = 320;
     this.sizeX = 75;
     this.sizeY = 80;
+    this.caida = false;
 
-    // this.caer = new Image();
-    // this.caer.src = ("./images/falling-pepe.png")
+    
 }
 
 
@@ -19,11 +19,10 @@ Gaps.prototype.drawGaps = function (ctx) {
     ctx.fillRect(this.x, this.y, 75, 80)
 
     ctx.save(),
-        ctx.beginPath()
+    ctx.beginPath()
     ctx.fillStyle = '#fff';
     ctx.font = "18px Arial"
-    // ctx.fillText("x.obstaculo:" + this.x, 20, 20);
-    // ctx.fillText("y.obstaculo:" + this.y, 20, 40);
+    
     ctx.closePath();
     ctx.restore();
 
@@ -40,15 +39,16 @@ Gaps.prototype.update = function () {
 
 
 Gaps.prototype.collision = function (skater, ctx) {
+   
     if (skater.x + 10 >= this.x && skater.posY + 70 >= this.y) {
+        this.caida = true;
 
-
-        ctx.save(),
+       // ctx.save(),
        // ctx.drawImage(this.caer, skater.x, skater.y);
-        ctx.font = '30px Arial';
-        ctx.fillStyle = 'red';
-        ctx.fillText('FELL', 40, 200, 700);
-        ctx.restore();
+        // ctx.font = '30px Arial';
+        // ctx.fillStyle = 'red';
+        // ctx.fillText('FELL', 40, 200, 700);
+        // ctx.restore();
 
     }
 };

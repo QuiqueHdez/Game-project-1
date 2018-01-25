@@ -5,6 +5,7 @@ function Back() {
 
     this.fondo = new Image();
     this.fondo.src = 'images/fondo-final-2.jpg';
+    this.step = 4;
 }
 
 Back.prototype.onload = function () {
@@ -12,7 +13,6 @@ Back.prototype.onload = function () {
     this.x = 0;
     this.width = fondo.width;
     this.min = 0 - this.width;
-    this.step = 4;
 
 }
 
