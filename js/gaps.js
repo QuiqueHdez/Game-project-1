@@ -6,7 +6,9 @@ function Gaps() {
     this.y = 320;
     this.sizeX = 75;
     this.sizeY = 80;
-    this.caida = false;    
+    this.caida = false; 
+    this.crash = new Audio("./images/golpe.mp3");
+    this.crash.volume = 0.5;
 }
 
 Gaps.prototype.drawGaps = function (ctx) {
@@ -31,6 +33,7 @@ Gaps.prototype.update = function () {
 Gaps.prototype.collision = function (skater, ctx) {
    
     if (skater.x + 10 >= this.x && skater.posY + 70 >= this.y) {
+        this.crash.play();
         this.caida = true;
 
        

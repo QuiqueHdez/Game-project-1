@@ -15,7 +15,7 @@ Skater.prototype.drawPlayer = function () {
     var img = new Image();
     img.src = './images/pepe2.png';
     this.ctx.drawImage(img, this.x, this.posY,this.paddleX,this.paddleHeight);
-    //this.ctx.fillText(this.posY, 20, 100)
+    this.ctx.fillText(this.posY, 20, 100)
 
 }
 

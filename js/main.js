@@ -3,13 +3,22 @@ window.onload = function () {
     var bg = new Back();
     bg.onload();
     bg.update();
-    //var audio =new Audio("guile-theme")
+    var audio = new Audio("./images/Guile Theme.mp3");
+    audio.play();
+    audio.volume = 0.1    ;
     document.getElementById("start-button").onclick = function () {
         pauseGame();
-
+        
     };
+    audiobug = true;
 
-
+    // function mute() {
+    //     if (audiobug) {
+    //         audio.muted = true; audio.muted = true;
+    //     } else {
+    //         audio.muted = false;
+    //     }
+    // }
 
     var cn = new Coins();
     var sk = new Skater();
@@ -42,9 +51,11 @@ window.onload = function () {
         }
     }
     function pauseGame() {
+        
         alert("ACCEPT TO RESUME");
 
     }
+    
     function update() {
         if (sk.downPressed && sk.posY >= 130 && debug) {
 
@@ -86,7 +97,7 @@ window.onload = function () {
         ib.refill();
         ra.draw(bg.ctx);
         ra.refill();
-        ra.collision(sk, gp);
+        ra.collision(sk);
         gameOver(bg.ctx, bg, gp, ib, ra, cn, sk);
 
 
@@ -105,10 +116,13 @@ window.onload = function () {
             clearInterval(update);
             bg.step = gp.vx = ra.vx = cn.vx = ib.vx = 0;
             sk.posY = -100;
+            
 
             var fall = new Image();
             fall.src = "./images/falling-pepe.png";
             ctx.drawImage(fall, 30, 250, 110, 70);
+            //var vid = document.getElementById("audio");
+            audio.muted = true;
 
         }
     }

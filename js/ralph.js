@@ -12,9 +12,9 @@ Ralph.prototype.draw = function (ctx,) {
     var ralph = new Image();
     ralph.src = "./images/ralph2.png";
     ctx.drawImage(ralph, this.posX, this.posY, this.sizeX, this.sizeY);
-   // ctx.fillText(this.posX, 100, 100);
-   // ctx.fillText(this.posY, 100, 160);
+    //
     
+
     
     ctx.save();
     ctx.fillStyle = "black";
@@ -34,10 +34,14 @@ Ralph.prototype.refill = function () {
     }
 }
 Ralph.prototype.collision = function(skater){
-    if (this.posX < skater.x && this.posY < skater.posY) {
+    if (this.posX < skater.x && this.posY <= skater.posY) {
         this.lives -= 1;
         this.posX = -50;
+
         console.log("ralph")
+        var audio = new Audio("./images/sonido-ralph.mp3")
+        audio.play();
+        audio.volume = 0.8;
     }
 
 }

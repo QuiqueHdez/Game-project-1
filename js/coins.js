@@ -8,6 +8,8 @@ function Coins() {
     this.counterCoin = 0;
     this.coinColumn = 3;
     this.drunk = false;
+    this.burp = new Audio("./images/eructo.mp3");
+    this.burp.volume = 0.5;
 
 
 
@@ -39,17 +41,19 @@ Coins.prototype.achieveDetection = function (skater) {
     if (skater.x + skater.paddleX > this.arr[0].x && skater.x + skater.paddleX < this.arr[0].x + 25 && skater.posY < this.arr[0].y && skater.posY + skater.paddleHeight > this.arr[0].y + 25) {
         this.posX = -50;
         this.counterCoin += 1;
+        this.burp.play();
         
       
     } else if (skater.x + skater.paddleX > this.arr[1].x && skater.x + skater.paddleX < this.arr[1].x + 25 && skater.posY < this.arr[1].y && skater.posY + skater.paddleHeight > this.arr[1].y + 25) {
         this.posX2 = -50;
         this.counterCoin += 1;
+        this.burp.play();
        
            }
     else if (skater.x + skater.paddleX > this.arr[2].x && skater.x + skater.paddleX < this.arr[2].x + 25 && skater.posY < this.arr[2].y && skater.posY + skater.paddleHeight > this.arr[2].y + 25) {
         this.posX3 = -50;
         this.counterCoin += 1;
-        
+        this.burp.play();
             }
     else if (this.counterCoin >= 10) {
        
