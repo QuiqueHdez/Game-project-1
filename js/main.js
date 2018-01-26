@@ -10,8 +10,7 @@ window.onload = function () {
         pauseGame();
         
     };
-    audiobug = true;
-
+   
     // function mute() {
     //     if (audiobug) {
     //         audio.muted = true; audio.muted = true;
@@ -25,6 +24,8 @@ window.onload = function () {
     var gp = new Gaps();
     var ib = new Bonus();
     var ra = new Ralph();
+    var fall = new Image();
+     fall.src = "./images/falling-pepe.png";
 
 
     document.addEventListener("keydown", restart, false)
@@ -90,7 +91,7 @@ window.onload = function () {
         gp.update();
         gp.collision(sk, bg.ctx);
         cn.appearUpdate(bg.ctx);
-        cn.achieveDetection(sk);
+        cn.achieveDetection(sk,gp);
         cn.refill();
         ib.update(bg.ctx);
         ib.bonusUp(sk, cn);
@@ -99,6 +100,7 @@ window.onload = function () {
         ra.refill();
         ra.collision(sk);
         gameOver(bg.ctx, bg, gp, ib, ra, cn, sk);
+        drunk(bg.ctx, bg, gp, ib, ra, cn, sk);
 
 
 
@@ -107,7 +109,7 @@ window.onload = function () {
     setInterval(update, 1000 / 60);
 
     function gameOver(ctx, bg, gp, ib, ra, cn, sk) {
-        if (ra.lives == 0 || gp.caida || cn.drunk) {
+        if (ra.lives == 0 || gp.caida) {
             ctx.font = "60px Arial"
             ctx.fillStyle = "black";
             ctx.fillText("GAMEOVER!!", 220, 140)
@@ -118,8 +120,8 @@ window.onload = function () {
             sk.posY = -100;
             
 
-            var fall = new Image();
-            fall.src = "./images/falling-pepe.png";
+            // var fall = new Image();
+            // fall.src = "./images/falling-pepe.png";
             ctx.drawImage(fall, 30, 250, 110, 70);
             //var vid = document.getElementById("audio");
             audio.muted = true;
@@ -132,5 +134,23 @@ window.onload = function () {
             document.location.reload();
         }
     }
+    function drunk(ctx, bg, gp, ib, ra, cn, sk) {
+        if (cn.drunk) {
+            ctx.save();
+            ctx.font = "60px Arial"
+            ctx.fillStyle="black"
+            ctx.fillText ("YOU GOT DRUNK!!", 150, 140)
+            ctx.fillText("Press enter to restart", 130, 200);
+            ctx.restore();
+            clearInterval(update);
+            bg.step = gp.vx = ra.vx = cn.vx = ib.vx = 0;
+            ctx.drawImage(fall, 30, 250, 110, 70);
+            sk.posY = -100;
+            gp.crash.muted = true;
+            audio.muted = true;
+        }
+    }
+
+
 }
 

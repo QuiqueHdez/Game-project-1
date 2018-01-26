@@ -2,7 +2,7 @@ function Bonus() {
     this.maxPosY = 200;
     this.minPosY = 150;
     this.vx = 10;
-    this.posX = 3300;
+    this.posX = 4300;
     
 
 }
@@ -28,6 +28,6 @@ Bonus.prototype.update = function (ctx) {
 Bonus.prototype.refill = function () {
     if (this.posX < 0) {
         this.randomY();
-        this.posX = 3300;
+        this.posX = 4300;
     }
 }

@@ -10,6 +10,9 @@ function Coins() {
     this.drunk = false;
     this.burp = new Audio("./images/eructo.mp3");
     this.burp.volume = 0.5;
+    this.final = new Audio("./images/golpe.mp3");
+    this.final.volume = 0.8;
+
 
 
 
@@ -58,6 +61,8 @@ Coins.prototype.achieveDetection = function (skater) {
     else if (this.counterCoin >= 10) {
        
         this.drunk = true;
+        this.final.play();
+        this.counterCoin = 0; 
     }
 
 }

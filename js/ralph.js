@@ -4,7 +4,7 @@ function Ralph() {
     this.posX = 1500;
     this.posY = 250;
     this.vx = 4;
-    this.lives = 3;
+    this.lives = 5;
 
 }
 Ralph.prototype.draw = function (ctx,) {
